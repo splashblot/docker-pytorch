@@ -77,5 +77,9 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 RUN conda install -y -c menpo opencv3 \
  && conda clean -ya
 
+ # Install Jupyter
+RUN conda install -y jupyter \
+ && conda clean -ya
+
 # Set the default command to python3
 CMD ["python3"]

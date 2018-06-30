@@ -43,7 +43,7 @@ RUN conda install -y -c pytorch \
 # CUDA 8.0
 make_dockerfile \
   'cuda-8.0/Dockerfile' \
-  'nvidia/cuda:8.0-runtime-ubuntu16.04' \
+  'nvidia/cuda:8.0-cudnn7-devel-ubuntu14.04' \
   '# CUDA 8.0-specific steps
 RUN conda install -y -c pytorch \
     cuda80=1.0 \
