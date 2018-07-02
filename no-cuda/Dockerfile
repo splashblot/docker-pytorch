@@ -102,5 +102,9 @@ RUN python3 -m pip uninstall --y osmium \
  && sudo ln -s /usr/lib/x86_64-linux-gnu/libboost_python-py35.so /usr/lib/x86_64-linux-gnu/libboost_python.so \
  && python3 -m pip install osmium 
 
+# Create a datasets directory
+RUN mkdir /datasets
+VOLUME /datasets
+
 # Set the default command to python3
 CMD ["python3"]
