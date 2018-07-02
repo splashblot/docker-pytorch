@@ -89,5 +89,12 @@ RUN sudo apt-get update && sudo apt-get install -y \
 RUN cd /app && git clone https://github.com/mapbox/robosat.git
 RUN cd /app/robosat && pip install -r deps/requirements-lock.txt
 
+# Ugly patching of osmium, see https://github.com/osmcode/pyosmium/issues/52#issuecomment-401524007
+RUN python3 -m pip uninstall --y osmium \
+ && rm -rf ~/.cache/pip/wheels/ \
+ && sudo rm /usr/lib/x86_64-linux-gnu/libboost_python.so \
+ && sudo ln -s /usr/lib/x86_64-linux-gnu/libboost_python-py35.so /usr/lib/x86_64-linux-gnu/libboost_python.so \
+ && python3 -m pip install osmium 
+
 # Set the default command to python3
 CMD ["python3"]
