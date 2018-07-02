@@ -2,6 +2,7 @@ FROM nvidia/cuda:8.0-cudnn7-devel-ubuntu16.04
 
 # Install some basic utilities
 RUN apt-get update && apt-get install -y \
+    vim \
     curl \
     ca-certificates \
     sudo \

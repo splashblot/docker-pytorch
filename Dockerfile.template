@@ -2,6 +2,7 @@ FROM $BASE
 
 # Install some basic utilities
 RUN apt-get update && apt-get install -y \
+    vim \
     curl \
     ca-certificates \
     sudo \

@@ -2,6 +2,7 @@ FROM nvidia/cuda:7.5-runtime-ubuntu14.04
 
 # Install some basic utilities
 RUN apt-get update && apt-get install -y \
+    vim \
     curl \
     ca-certificates \
     sudo \
