@@ -1,6 +1,8 @@
 ### PyTorch Docker image
 
-[![Docker Build Status](https://img.shields.io/docker/build/anibali/pytorch.svg)](https://hub.docker.com/r/anibali/pytorch/)
+[![Docker Build Status](https://img.shields.io/docker/build/splashblot/docker-pytorch.svg)](https://hub.docker.com/r/splashblot/docker-pytorch/)
+
+... forked for our purposes from https://hub.docker.com/r/anibali/pytorch/
 
 Ubuntu [14.04|16.04] + PyTorch + CUDA [7.5|8.0|9.1|none]
 
