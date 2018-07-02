@@ -104,7 +104,7 @@ RUN python3 -m pip uninstall --y osmium \
  && python3 -m pip install osmium 
 
 # Create a datasets directory
-RUN mkdir /datasets
+RUN sudo mkdir /datasets && sudo chown -R user:user /datasets
 VOLUME /datasets
 
 # Set the default command to python3
