@@ -103,7 +103,7 @@ RUN python3 -m pip uninstall --y osmium \
  && sudo ln -s /usr/lib/x86_64-linux-gnu/libboost_python-py35.so /usr/lib/x86_64-linux-gnu/libboost_python.so \
  && python3 -m pip install osmium 
 
-# Add
+# Add TernausNetV2
 RUN git clone https://github.com/ternaus/TernausNetV2.git \
  && pip install scikit-image tifffile \
  && cd /app/TernausNetV2/modules; chmod +x build.sh \
