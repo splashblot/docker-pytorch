@@ -103,7 +103,7 @@ RUN python3 -m pip uninstall --y osmium \
  && python3 -m pip install osmium 
 
 # Add TernausNetV2
-RUN git clone https://github.com/ternaus/TernausNetV2.git \
+RUN git clone https://github.com/jjmata/TernausNetV2 \
  && pip install scikit-image tifffile \
  && cd /app/TernausNetV2/modules; chmod +x build.sh \
  && /app/TernausNetV2/modules/build.sh \
