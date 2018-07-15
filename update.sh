@@ -55,7 +55,7 @@ RUN conda install -y -c pytorch \
 # CUDA 9.1
 make_dockerfile \
   'cuda-9.1/Dockerfile' \
-  'nvidia/cuda:9.1-base-ubuntu16.04' \
+  'nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04' \
   '# CUDA 9.1-specific steps
 RUN conda install -y -c pytorch \
     cuda91=1.0 \
