@@ -2,8 +2,69 @@
 
 [![Docker Build Status](https://img.shields.io/docker/build/splashblot/docker-pytorch.svg)](https://hub.docker.com/r/splashblot/docker-pytorch/)
 
-... forked for our purposes from https://hub.docker.com/r/anibali/pytorch/
+... forked for our purposes from https://hub.docker.com/r/anibali/pytorch/ (see below for original `README.md` content)
 
+The purpose of this image is to expedite our experimentation with PyTorch based convnets.  They two projects we've started with are:
+
+  * [Robosat](https://github.com/mapbox/robosat/) by Mapbox
+  * [TernausNetV2](https://github.com/ternaus/TernausNetV2) by [Vladimir Iglovikov](https://github.com/ternaus)
+
+#### Pre-requisites
+
+Before you proceed, get these working:
+
+  * Docker (duh!)
+  * [NVIDIA Docker 2.0](https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)) 
+
+Yes, this means you don't have to worry about installing CUDA!  GPU drivers should be all you need.
+
+To test that you're ready to roll try:
+
+```
+docker run splashblot/docker-pytorch:cuda91 nvidia-smi
+```
+
+... and you should see something along the lines of:
+
+```
+Fri Jul 02 17:02:24 2018
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 396.24.02              Driver Version: 396.24.02                 |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla V100-PCIE...  Off  | 00000000:81:00.0 Off |                    0 |
+| N/A   42C    P0    39W / 250W |   1609MiB / 16160MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
++-----------------------------------------------------------------------------+
+```
+
+#### Robosat testing
+
+To start playing around, you can just kick off a container like so:
+
+```
+docker run -ti -p 8899:8899 -p 5000:5000 -v tiles-swarm_data-volume-datasets:/datasets/ splashblot/docker-pytorch:cuda91 bash
+```
+
+... port 8899 will give you access to a Juyter installation, and port 5000 is left open for the times you might want to use `rs serve`.
+
+
+You will need a MAPBOX token, use this for now:
+
+```
+export MAPBOX_ACCESS_TOKEN=pk.eyJ1IjoiamptYXRhIiwiYSI6ImNqanVneWd3eDR3b2szbG14ZTR1YjExNDUifQ.g5xdbem-iixR1svLi9QpRg
+```
+
+And start training away ...
+
+* * *
 Ubuntu [14.04|16.04] + PyTorch + CUDA [7.5|8.0|9.1|none]
 
 #### Requirements
